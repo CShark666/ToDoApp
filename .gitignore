@@ -813,3 +813,6 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,rider,visualstudio,csharp,aspnetcore,react
 
+ToDoApp.Api/app.db
+ToDoApp.Api/app.db-shm
+ToDoApp.Api/app.db-wal
