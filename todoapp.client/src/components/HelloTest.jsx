@@ -30,7 +30,7 @@ export function HelloTest() {
   return (
     <div>
       <h1>React + .NET</h1>
-      <pre>{data.message}</pre>
+      <pre>{data?.message}</pre>
     </div>
   );
 }
