@@ -5,9 +5,3 @@ function App() {
 }
 
 export default App;
-
-  // useEffect(() => {
-  //   fetch("/api/test")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data));
-  // }, []);
