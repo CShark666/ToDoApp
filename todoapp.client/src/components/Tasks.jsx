@@ -15,16 +15,15 @@ export function Tasks() {
   }, [tasks]);
   return (
     <div className="tasks-container">
-      {tasks.map((tasks) => (
-        <div key={tasks.id} className="task-container">
-          <div className="task-text-box">
-            <p>
-              ({tasks.id}) {tasks.title}: {`${tasks.isDone}`}
-            </p>
+      {tasks.map((task) => (
+        <div key={task.id} className="task-container">
+          <div className="task-text">
+            #{task.id} | {task.title} | {task.isDone ? "Done" : "Pending"}
           </div>
-          <div className="task-btn-box">
-            <button>edit</button>
-            <button>delete</button>
+
+          <div className="task-buttons">
+            <button>Edit</button>
+            <button>Delete</button>
           </div>
         </div>
       ))}
