@@ -59,9 +59,16 @@ static async Task<IResult> CreateTodo(ToDo toDo, ToDoContext context)
     return TypedResults.Created($"/todo-items/{toDo.Id}", toDo);
 }
 
-static async Task<IResult> UpdateTodo(ToDoContext context)
+static async Task<IResult> UpdateTodo(int id, ToDo toDoTask, ToDoContext context)
 {
-    throw new NotImplementedException();
+    var toDo = await context.ToDos.FindAsync(id);
+
+    if (toDo is null) return TypedResults.NotFound();
+    toDo.Title = toDoTask.Title;
+
+    await context.SaveChangesAsync();
+
+    return TypedResults.NoContent();
 }
 
 static async Task<IResult> DeleteTodo(int id, ToDoContext context)
