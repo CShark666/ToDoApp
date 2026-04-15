@@ -51,6 +51,7 @@ static async Task<IResult> UpdateTodo(int id, ToDo toDoTask, ToDoContext context
 
     if (toDo is null) return TypedResults.NotFound();
     toDo.Title = toDoTask.Title;
+    toDo.IsDone = toDoTask.IsDone;
 
     await context.SaveChangesAsync();
 

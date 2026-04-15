@@ -3,6 +3,7 @@ import { useState } from "react";
 export function Task({ task }) {
   const [isEdited, setEdited] = useState(false);
   const [textInput, setTextInput] = useState(task.title);
+  const [taskStatus, setTaskStatus] = useState(task.isDone);
 
   const deleteTask = async () => {
     await fetch(`/api/todo-items/${task.id}`, {
@@ -18,6 +19,7 @@ export function Task({ task }) {
         },
         body: JSON.stringify({
           Title: textInput,
+          IsDone: taskStatus,
         }),
       });
       setEdited(false);
@@ -25,23 +27,35 @@ export function Task({ task }) {
       setEdited(true);
     }
   };
+  const updateStatus = (event) => {
+    setTaskStatus(Boolean(event.target.value));
+  };
   const handleInput = (e) => {
     setTextInput(e.target.value);
   };
 
   return (
     <div key={task.id} className="task-container">
-      <div className="task-text">
-        #{task.id} |{" "}
+      <p>#{task.id}</p>
+      <div className="task-text-box">
         {isEdited ? (
           <input type="text" onChange={handleInput} value={textInput} />
         ) : (
-          `${task.title}`
+          <p className="task-title">{task.title}</p>
         )}
-        | {task.isDone ? "Done" : "Pending"}
       </div>
-
-      <div className="task-buttons">
+      <div className="task-status-box">
+        <p>{task.isDone ? "Done" : "Pending"}</p>
+        {isEdited ? (
+          <select onChange={updateStatus}>
+            <option value={false}>Pending</option>
+            <option value={true}>Done</option>
+          </select>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="task-buttons-box">
         <button onClick={editTask}>Edit</button>
         <button onClick={deleteTask}>Delete</button>
       </div>
