@@ -64,7 +64,13 @@ static async Task<IResult> UpdateTodo(ToDoContext context)
     throw new NotImplementedException();
 }
 
-static async Task<IResult> DeleteTodo(ToDoContext context)
+static async Task<IResult> DeleteTodo(int id, ToDoContext context)
 {
-    throw new NotImplementedException();
+    if (await context.ToDos.FindAsync(id) is ToDo toDo)
+    {
+        context.ToDos.Remove(toDo);
+        await context.SaveChangesAsync();
+        return TypedResults.NoContent();
+    }
+    return TypedResults.NotFound();
 }

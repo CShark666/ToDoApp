@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Task } from "./Task";
 import "../styles/Tasks.css";
 
 export function Tasks() {
@@ -16,16 +17,7 @@ export function Tasks() {
   return (
     <div className="tasks-container">
       {tasks.map((task) => (
-        <div key={task.id} className="task-container">
-          <div className="task-text">
-            #{task.id} | {task.title} | {task.isDone ? "Done" : "Pending"}
-          </div>
-
-          <div className="task-buttons">
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </div>
+        <Task task={task}/>
       ))}
     </div>
   );
