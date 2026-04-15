@@ -28,9 +28,9 @@ export function CreateTask() {
   };
 
   return (
-    <>
+    <div>
       <input type="text" value={textInput} onChange={handleInput} />
       <button onClick={saveTask}>Save task</button>
-    </>
+    </div>
   );
 }
