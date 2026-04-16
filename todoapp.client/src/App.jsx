@@ -1,15 +1,13 @@
-import { HelloTest } from "./components/HelloTest";
-import { CreateTask } from "./components/CreateTask";
-import { Tasks } from "./components/Tasks";
+import { Routes, Route } from "react-router";
+import { HelloPage } from "./pages/HelloPage";
+import { ToDoAppPage } from "./pages/ToDoAppPage";
 
 function App() {
-  
   return (
-    <>
-      <HelloTest />
-      <CreateTask />
-      <Tasks />
-    </>
+    <Routes>
+      <Route index element={<HelloPage />} />
+      <Route path="todo" element={<ToDoAppPage />} />
+    </Routes>
   );
 }
 
