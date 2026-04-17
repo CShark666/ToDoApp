@@ -5,5 +5,6 @@ namespace ToDoApp.Api
     public class ToDoContext(DbContextOptions<ToDoContext> options) : DbContext(options)
     {
         public DbSet<ToDo> ToDos => Set<ToDo>();
+        public DbSet<Quest> Quests => Set<Quest>();
     }
 }
