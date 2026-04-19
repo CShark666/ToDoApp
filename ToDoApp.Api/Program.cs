@@ -108,7 +108,9 @@ static async Task<IResult> UpdateQuest(int id, Quest inputPomoQuest, ToDoContext
 
     pomoQuest.Title = inputPomoQuest.Title;
     pomoQuest.Description = inputPomoQuest.Description;
-    inputPomoQuest.Status = inputPomoQuest.Status;
+    pomoQuest.Status = inputPomoQuest.Status;
+    pomoQuest.TotalTimeRemaining = inputPomoQuest.TotalTimeRemaining;
+    pomoQuest.AmountTimeIntervalsRemaining = inputPomoQuest.AmountTimeIntervalsRemaining;
 
     await context.SaveChangesAsync();
 

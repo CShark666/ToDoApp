@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Timer, TimerNegative } from "../components/Timers";
+import { PomoQuest } from "../components/PomoQuest";
 
 export function PomodoroPage() {
   const [title, setTitle] = useState("");
@@ -18,7 +18,7 @@ export function PomodoroPage() {
         description: description,
         status: 0,
         totalTimeInSeconds: totalTimeInSeconds * 60 * 60,
-        timeInterval: timeInterval * 60,
+        timeIntervalInSeconds: timeInterval * 60,
       }),
     };
     await fetch("/api/pomo-quests/", requestBody);
@@ -62,8 +62,7 @@ export function PomodoroPage() {
         />
         <button onClick={saveQuest}>save quest</button>
       </div>
-      <Timer />
-      <TimerNegative setupSeconds={15} />
+      <PomoQuest />
     </>
   );
 }

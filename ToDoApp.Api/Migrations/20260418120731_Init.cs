@@ -22,8 +22,11 @@ namespace ToDoApp.Api.Migrations
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Status = table.Column<int>(type: "INTEGER", nullable: false),
                     TotalTimeInSeconds = table.Column<int>(type: "INTEGER", nullable: false),
-                    TimeInterval = table.Column<int>(type: "INTEGER", nullable: false),
-                    AmountTimeIntervals = table.Column<int>(type: "INTEGER", nullable: false)
+                    TimeIntervalInSeconds = table.Column<int>(type: "INTEGER", nullable: false),
+                    AmountTimeIntervals = table.Column<int>(type: "INTEGER", nullable: false),
+                    TotalTimeRemaining = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeIntervalsRemaining = table.Column<int>(type: "INTEGER", nullable: false),
+                    AmountTimeIntervalsRemaining = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

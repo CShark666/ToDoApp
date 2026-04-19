@@ -11,7 +11,7 @@ using ToDoApp.Api;
 namespace ToDoApp.Api.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20260417143436_Init")]
+    [Migration("20260418120731_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -29,6 +29,9 @@ namespace ToDoApp.Api.Migrations
                     b.Property<int>("AmountTimeIntervals")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("AmountTimeIntervalsRemaining")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
@@ -38,7 +41,10 @@ namespace ToDoApp.Api.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TimeInterval")
+                    b.Property<int>("TimeIntervalInSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TimeIntervalsRemaining")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -46,6 +52,9 @@ namespace ToDoApp.Api.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("TotalTimeInSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TotalTimeRemaining")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
