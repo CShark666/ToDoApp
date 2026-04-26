@@ -116,3 +116,7 @@
     - періодично запитує (polling) актуальний стан із backend
     - відображає отримані дані
 
+
+Сторіборд:
+<img width="4106" height="2720" alt="storyboard" src="https://github.com/user-attachments/assets/f1023067-ac75-4806-871d-dab2e0a89715" />
+
